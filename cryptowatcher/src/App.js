@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import FixedMenuLayout from './FixedMenuLayout';
+import Layout from './Layout';
 class App extends Component {
   render() {
     return (
-      <FixedMenuLayout/>
+      <Layout/>
       // <div className="App">
       //   <header className="App-header">
       //     <img src={logo} className="App-logo" alt="logo" />
