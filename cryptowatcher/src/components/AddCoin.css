@@ -1,0 +1,12 @@
+
+.AddCoin form {
+    display: flex;
+  }
+  
+  .AddCoin .CoinText {
+    flex-grow: 2;
+  }
+  
+  .AddCoin .CoinButton {
+    flex-grow: 1;
+  }
