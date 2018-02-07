@@ -1,27 +1,23 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import {FormattedNumber} from 'react-intl';
+import { Card, Icon, Image,Header } from 'semantic-ui-react'
 
-const Coin = ({ onClick, name }) => (
+const Coin = ({total, name,image,id,volume,change,totalchange }) => (
+  
   <Card>
-    <Image src='/assets/images/avatar/large/matthew.png' />
+    {image && <Image src='/assets/images/avatar/large/matthew.png' /> }
     <Card.Content>
       <Card.Header>
         {name}
       </Card.Header>
       <Card.Meta>
-        <span className='date'>
-          Joined in 2015
-        </span>
+        {change!=0 && <Header as='h4' color={change>0?'green':'red'}><FormattedNumber minimumFractionDigits= {2} value={change} style="percent" /> </Header>} 
+        {totalchange!=0 && <Header as='h4'  color={totalchange>0?'green':'red'}><FormattedNumber minimumFractionDigits= {2} value={totalchange} style="percent" /></Header>}
       </Card.Meta>
       <Card.Description>
-        Matthew is a musician living in Nashville.
+        <FormattedNumber value={total} />
+        {/* {total && <span>{total}</span>} */}
       </Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-      <a>
-        <Icon name='user' />
-        22 Friends
-      </a>
     </Card.Content>
   </Card>
 )

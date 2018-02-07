@@ -4,3 +4,7 @@ export const addCoin = (name) => ({
   id: nextCoinId++,
   name
 })
+
+export * from './marketcap';
+export * from './coins';
+export * from './coinpicker';

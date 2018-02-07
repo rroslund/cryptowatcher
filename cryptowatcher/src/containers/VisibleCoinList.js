@@ -1,16 +1,24 @@
 import { connect } from 'react-redux'
 import CoinList from '../components/CoinList'
+import { fetchTotalMarketCap } from '../actions';
 
-const getVisibleCoins = (coins) => {
-  return coins
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    coins: state.coins.selected,
+    total: {
+      ...state.marketcap,
+      name: "Total"
+    }
 }
+};
 
-const mapStateToProps = (state) => ({
-  coins: getVisibleCoins(state.coins)
-})
-
-const mapDispatchToProps = {
-  onCoinClick: () =>{console.log("CoinClick");}
+const mapDispatchToProps  = (key) => dispatch => {
+  return{
+    onCoinClick: () =>{console.log("CoinClick");},
+    getTotalMarketCap: () =>{dispatch(fetchTotalMarketCap())},
+    // getCoins: () =>{dispatch(fetchCoins())}
+  };
 }
 
 const VisibleCoinList = connect(
